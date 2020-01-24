@@ -1,7 +1,7 @@
 import csv
 
 
-def calculate_hobbyist_percentage_2011():
+def calculate_above_nonindustry_percentage_2011():
     with open('../data/developer_survey_2011/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -21,7 +21,6 @@ def calculate_hobbyist_percentage_2011():
             else:
                 counts['Yes'] += 1
             
-
     total = counts['Yes'] + counts['No']
 
     yes_pct = (counts['Yes'] / total) * 100
@@ -39,8 +38,7 @@ def calculate_hobbyist_percentage_2011():
         writer.writerow({'year':2011, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-
-def calculate_hobbyist_percentage_2012():
+def calculate_above_nonindustry_percentage_2012():
     with open('../data/developer_survey_2012/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -60,7 +58,6 @@ def calculate_hobbyist_percentage_2012():
             else:
                 counts['Yes'] += 1
             
-
     total = counts['Yes'] + counts['No']
 
     yes_pct = (counts['Yes'] / total) * 100
@@ -78,7 +75,7 @@ def calculate_hobbyist_percentage_2012():
         writer.writerow({'year':2012, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-def calculate_hobbyist_percentage_2013():
+def calculate_above_nonindustry_percentage_2013():
     with open('../data/developer_survey_2013/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -98,7 +95,6 @@ def calculate_hobbyist_percentage_2013():
             else:
                 counts['Yes'] += 1
             
-
     total = counts['Yes'] + counts['No']
 
     yes_pct = (counts['Yes'] / total) * 100
@@ -116,7 +112,7 @@ def calculate_hobbyist_percentage_2013():
         writer.writerow({'year':2013, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-def calculate_hobbyist_percentage_2014():
+def calculate_above_nonindustry_percentage_2014():
     with open('../data/developer_survey_2014/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -136,7 +132,6 @@ def calculate_hobbyist_percentage_2014():
             else:
                 counts['Yes'] += 1
             
-
     total = counts['Yes'] + counts['No']
 
     yes_pct = (counts['Yes'] / total) * 100
@@ -154,7 +149,7 @@ def calculate_hobbyist_percentage_2014():
         writer.writerow({'year':2014, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-def calculate_hobbyist_percentage_2015():
+def calculate_above_nonindustry_percentage_2015():
     with open('../data/developer_survey_2015/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -169,7 +164,6 @@ def calculate_hobbyist_percentage_2015():
             else:
                 counts['Yes'] += 1
         
-
     total = counts['Yes'] + counts['No']
 
     yes_pct = (counts['Yes'] / total) * 100
@@ -187,7 +181,7 @@ def calculate_hobbyist_percentage_2015():
         writer.writerow({'year':2015, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-def calculate_hobbyist_percentage_2016():
+def calculate_above_nonindustry_percentage_2016():
     with open('../data/developer_survey_2016/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -202,7 +196,6 @@ def calculate_hobbyist_percentage_2016():
             else:
                 counts['No'] += 1
         
-
     total = counts['Yes'] + counts['No']
 
     yes_pct = (counts['Yes'] / total) * 100
@@ -220,24 +213,24 @@ def calculate_hobbyist_percentage_2016():
         writer.writerow({'year':2016, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-def calculate_hobbyist_percentage_2017():
+def calculate_above_nonindustry_percentage_2017():
     with open('../data/developer_survey_2017/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
         counts = {
-            'Yes, I program as a hobby': 0,
-            'Yes, both': 0,
-            'Yes, I contribute to open source projects': 0,
+            'Yes': 0,
             'No': 0
         }
 
         for line in csv_reader:
-            counts[line['ProgramHobby']] += 1
+            if line['Professional'] == 'None of these':
+                counts['No'] += 1
+            else:
+                counts['Yes'] += 1
 
+    total = counts['Yes'] + counts['No']
 
-    total = counts['Yes, I program as a hobby'] + counts['Yes, both'] + counts['Yes, I contribute to open source projects'] + counts['No']
-
-    yes_pct = ((counts['Yes, I program as a hobby'] + counts['Yes, both'] + counts['Yes, I contribute to open source projects']) / total) * 100
+    yes_pct = (counts['Yes'] / total) * 100
     yes_pct = round(yes_pct, 2)
 
     no_pct = (counts['No'] / total) * 100
@@ -252,7 +245,7 @@ def calculate_hobbyist_percentage_2017():
         writer.writerow({'year':2017, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-def calculate_hobbyist_percentage_2018():
+def calculate_above_nonindustry_percentage_2018():
     with open('../data/developer_survey_2018/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -262,8 +255,10 @@ def calculate_hobbyist_percentage_2018():
         }
 
         for line in csv_reader:
-            counts[line['Hobby']] += 1
-
+            if line['DevType'] == 'Marketing or sales professional' or line['DevType'] == 'None of the above' or line['DevType'] == '':
+                counts['No'] += 1
+            else:
+                counts['Yes'] += 1
 
     total = counts['Yes'] + counts['No']
 
@@ -272,7 +267,6 @@ def calculate_hobbyist_percentage_2018():
 
     no_pct = (counts['No'] / total) * 100
     no_pct = round(no_pct, 2)
-
 
     print(f"2018 Yes: {yes_pct}%")
     print(f"2018 No: {no_pct}%")
@@ -283,8 +277,7 @@ def calculate_hobbyist_percentage_2018():
         writer.writerow({'year':2018, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
-
-def calculate_hobbyist_percentage_2019():
+def calculate_above_nonindustry_percentage_2019():
     with open('../data/developer_survey_2019/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -294,8 +287,10 @@ def calculate_hobbyist_percentage_2019():
         }
 
         for line in csv_reader:
-            counts[line['Hobbyist']] += 1
-
+            if line['DevType'] == 'NA' or line['DevType'] == '' or line['DevType'] == 'Marketing or sales professional':
+                counts['No'] += 1
+            else:
+                counts['Yes'] += 1
 
     total = counts['Yes'] + counts['No']
 
@@ -315,12 +310,12 @@ def calculate_hobbyist_percentage_2019():
         
 
 if __name__ == "__main__":
-    calculate_hobbyist_percentage_2011()
-    calculate_hobbyist_percentage_2012()
-    calculate_hobbyist_percentage_2013()
-    calculate_hobbyist_percentage_2014()
-    calculate_hobbyist_percentage_2015()
-    calculate_hobbyist_percentage_2016()
-    calculate_hobbyist_percentage_2017()
-    calculate_hobbyist_percentage_2018()
-    calculate_hobbyist_percentage_2019()
+    calculate_above_nonindustry_percentage_2011()
+    calculate_above_nonindustry_percentage_2012()
+    calculate_above_nonindustry_percentage_2013()
+    calculate_above_nonindustry_percentage_2014()
+    calculate_above_nonindustry_percentage_2015()
+    calculate_above_nonindustry_percentage_2016()
+    calculate_above_nonindustry_percentage_2017()
+    calculate_above_nonindustry_percentage_2018()
+    calculate_above_nonindustry_percentage_2019()
