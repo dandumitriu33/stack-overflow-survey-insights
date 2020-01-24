@@ -36,7 +36,6 @@ def calculate_language_popularity_percentage_2011():
         if language_counter[k] < 5:
             del language_counter[k]
 
-
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
         percentage = round(percentage, 2)
@@ -45,7 +44,6 @@ def calculate_language_popularity_percentage_2011():
     sorted_by_developer_number = {k: v for k, v in sorted(language_counter.items(), key=lambda item: item[1], reverse=True)}
 
     print(sorted_by_developer_number)
-
 
 
 def calculate_language_popularity_percentage_2012():
@@ -85,7 +83,6 @@ def calculate_language_popularity_percentage_2012():
         if language_counter[k] < 5:
             del language_counter[k]
 
-
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
         percentage = round(percentage, 2)
@@ -94,7 +91,6 @@ def calculate_language_popularity_percentage_2012():
     sorted_by_developer_number = {k: v for k, v in sorted(language_counter.items(), key=lambda item: item[1], reverse=True)}
 
     print(sorted_by_developer_number)
-
 
 
 def calculate_language_popularity_percentage_2013():
@@ -134,7 +130,6 @@ def calculate_language_popularity_percentage_2013():
         if language_counter[k] < 10:
             del language_counter[k]
 
-
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
         percentage = round(percentage, 2)
@@ -143,7 +138,6 @@ def calculate_language_popularity_percentage_2013():
     sorted_by_developer_number = {k: v for k, v in sorted(language_counter.items(), key=lambda item: item[1], reverse=True)}
 
     print(sorted_by_developer_number)
-
 
 
 def calculate_language_popularity_percentage_2014():
@@ -182,7 +176,6 @@ def calculate_language_popularity_percentage_2014():
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
             del language_counter[k]
-
 
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
@@ -231,7 +224,6 @@ def calculate_language_popularity_percentage_2015():
         if language_counter[k] < 10:
             del language_counter[k]
 
-
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
         percentage = round(percentage, 2)
@@ -273,7 +265,6 @@ def calculate_language_popularity_percentage_2016():
         if language_counter[k] < 10:
             del language_counter[k]
 
-
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
         percentage = round(percentage, 2)
@@ -282,7 +273,6 @@ def calculate_language_popularity_percentage_2016():
     sorted_by_developer_number = {k: v for k, v in sorted(language_counter.items(), key=lambda item: item[1], reverse=True)}
 
     print(sorted_by_developer_number)
-
 
 
 def calculate_language_popularity_percentage_2017():
@@ -309,9 +299,6 @@ def calculate_language_popularity_percentage_2017():
                     except: 
                         language_counter.update({f'{language}': 1})
     
-        
-
-
     # print(language_counter)
 
     total_active_practitioners = counts['Yes, I program as a hobby'] + counts['Yes, both'] + counts['Yes, I contribute to open source projects']
@@ -320,6 +307,89 @@ def calculate_language_popularity_percentage_2017():
         if language_counter[k] < 10:
             del language_counter[k]
 
+    for k in list(language_counter.keys()):
+        percentage = (language_counter[k]/total_active_practitioners) * 100
+        percentage = round(percentage, 2)
+        language_counter[k] = percentage
+
+    sorted_by_developer_number = {k: v for k, v in sorted(language_counter.items(), key=lambda item: item[1], reverse=True)}
+
+    print(sorted_by_developer_number)
+
+
+def calculate_language_popularity_percentage_2018():
+    with open('../data/developer_survey_2018/survey_results_public.csv') as f:
+        csv_reader = csv.DictReader(f)
+
+        counts = {
+            'Yes': 0,
+            'No': 0
+        }
+
+        language_counter = {}
+
+        for line in csv_reader:
+            if line['DevType'] == 'Marketing or sales professional' or line['DevType'] == 'None of the above' or line['DevType'] == '':
+                counts['No'] += 1
+            else:
+                counts['Yes'] += 1
+                languages = line['LanguageWorkedWith'].split(';')
+                for unstripped_language in languages:
+                    language = unstripped_language.strip()
+                    try:
+                        language_counter[language] += 1
+                    except: 
+                        language_counter.update({f'{language}': 1})
+
+    # print(language_counter)
+
+    total_active_practitioners = counts['Yes']
+
+    for k in list(language_counter.keys()):
+        if language_counter[k] < 10:
+            del language_counter[k]
+
+    for k in list(language_counter.keys()):
+        percentage = (language_counter[k]/total_active_practitioners) * 100
+        percentage = round(percentage, 2)
+        language_counter[k] = percentage
+
+    sorted_by_developer_number = {k: v for k, v in sorted(language_counter.items(), key=lambda item: item[1], reverse=True)}
+
+    print(sorted_by_developer_number)
+
+
+def calculate_language_popularity_percentage_2019():
+    with open('../data/developer_survey_2019/survey_results_public.csv') as f:
+        csv_reader = csv.DictReader(f)
+
+        counts = {
+            'Yes': 0,
+            'No': 0
+        }
+
+        language_counter = {}
+
+        for line in csv_reader:
+            if line['DevType'] == 'NA' or line['DevType'] == '' or line['DevType'] == 'Marketing or sales professional':
+                counts['No'] += 1
+            else:
+                counts['Yes'] += 1
+                languages = line['LanguageWorkedWith'].split(';')
+                for unstripped_language in languages:
+                    language = unstripped_language.strip()
+                    try:
+                        language_counter[language] += 1
+                    except: 
+                        language_counter.update({f'{language}': 1})
+
+    # print(language_counter)
+
+    total_active_practitioners = counts['Yes']
+
+    for k in list(language_counter.keys()):
+        if language_counter[k] < 10:
+            del language_counter[k]
 
     for k in list(language_counter.keys()):
         percentage = (language_counter[k]/total_active_practitioners) * 100
@@ -339,3 +409,5 @@ if __name__ == "__main__":
     calculate_language_popularity_percentage_2015()
     calculate_language_popularity_percentage_2016()
     calculate_language_popularity_percentage_2017()
+    calculate_language_popularity_percentage_2018()
+    calculate_language_popularity_percentage_2019()
