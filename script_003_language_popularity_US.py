@@ -2,7 +2,7 @@ import csv
 import utils
 
 
-def calculate_language_popularity_percentage_2011():
+def calculate_language_popularity_percentage_US_2011():
     with open('../data/developer_survey_2011/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -23,13 +23,14 @@ def calculate_language_popularity_percentage_2011():
             elif line[question] == 'Other' or line[question] == "I don't work in tech" or line[question] == '':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                for language in language_cells:
-                    if line[language] != '':
-                        try:
-                            language_counter[line[language]] += 1
-                        except: 
-                            language_counter.update({f'{line[language]}': 1})
+                if line['What Country or Region do you live in?'] == 'United States of America':
+                    counts['Yes'] += 1
+                    for language in language_cells:
+                        if line[language] != '':
+                            try:
+                                language_counter[line[language]] += 1
+                            except: 
+                                language_counter.update({f'{line[language]}': 1})
 
     total_active_practitioners = counts['Yes']
 
@@ -48,12 +49,12 @@ def calculate_language_popularity_percentage_2011():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2011)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2011)
 
-    print('2011: OK')
+    print('2011 US: OK')
 
 
-def calculate_language_popularity_percentage_2012():
+def calculate_language_popularity_percentage_US_2012():
     with open('../data/developer_survey_2012/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -74,13 +75,14 @@ def calculate_language_popularity_percentage_2012():
             elif line[question] == 'Other' or line[question] == "I don't work in tech" or line[question] == '':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                for language in language_cells:
-                    if line[language] != '':
-                        try:
-                            language_counter[line[language]] += 1
-                        except: 
-                            language_counter.update({f'{line[language]}': 1})
+                if line['What Country or Region do you live in?'] == 'United States of America':
+                    counts['Yes'] += 1                
+                    for language in language_cells:
+                        if line[language] != '':
+                            try:
+                                language_counter[line[language]] += 1
+                            except: 
+                                language_counter.update({f'{line[language]}': 1})
 
     # print(language_counter)
 
@@ -97,13 +99,13 @@ def calculate_language_popularity_percentage_2012():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2012)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2012)
 
-    print('2012: OK')
+    print('2012 US: OK')
 
     
 
-def calculate_language_popularity_percentage_2013():
+def calculate_language_popularity_percentage_US_2013():
     with open('../data/developer_survey_2013/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -124,13 +126,14 @@ def calculate_language_popularity_percentage_2013():
             elif line[question] == 'Other' or line[question] == "I don't work in tech" or line[question] == '':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                for language in language_cells:
-                    if line[language] != '':
-                        try:
-                            language_counter[line[language]] += 1
-                        except: 
-                            language_counter.update({f'{line[language]}': 1})
+                if line['What Country or Region do you live in?'] == 'United States of America':
+                    counts['Yes'] += 1
+                    for language in language_cells:
+                        if line[language] != '':
+                            try:
+                                language_counter[line[language]] += 1
+                            except: 
+                                language_counter.update({f'{line[language]}': 1})
 
     # print(language_counter)
 
@@ -147,12 +150,12 @@ def calculate_language_popularity_percentage_2013():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2013)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2013)
 
-    print('2013: OK')
+    print('2013 US: OK')
 
 
-def calculate_language_popularity_percentage_2014():
+def calculate_language_popularity_percentage_US_2014():
     with open('../data/developer_survey_2014/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -173,13 +176,14 @@ def calculate_language_popularity_percentage_2014():
             elif line[question] == 'Other' or line[question] == "I don't work in tech" or line[question] == '':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                for language in language_cells:
-                    if line[language] != '':
-                        try:
-                            language_counter[line[language]] += 1
-                        except: 
-                            language_counter.update({f'{line[language]}': 1})
+                if line['What Country do you live in?'] == 'United States':
+                    counts['Yes'] += 1                
+                    for language in language_cells:
+                        if line[language] != '':
+                            try:
+                                language_counter[line[language]] += 1
+                            except: 
+                                language_counter.update({f'{line[language]}': 1})
 
     # print(language_counter)
 
@@ -196,12 +200,12 @@ def calculate_language_popularity_percentage_2014():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2014)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2014)
 
-    print('2014: OK')
+    print('2014 US: OK')
 
  
-def calculate_language_popularity_percentage_2015():
+def calculate_language_popularity_percentage_US_2015():
     with open('../data/developer_survey_2015/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -221,13 +225,14 @@ def calculate_language_popularity_percentage_2015():
             if line['Tabs or Spaces'] == '' or line['Tabs or Spaces'] == 'Huh?':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                for language in language_cells:
-                    if line[language] != '':
-                        try:
-                            language_counter[line[language]] += 1
-                        except: 
-                            language_counter.update({f'{line[language]}': 1})
+                if line['Country'] == 'United States':
+                    counts['Yes'] += 1                
+                    for language in language_cells:
+                        if line[language] != '':
+                            try:
+                                language_counter[line[language]] += 1
+                            except: 
+                                language_counter.update({f'{line[language]}': 1})
 
     # print(language_counter)
 
@@ -244,11 +249,11 @@ def calculate_language_popularity_percentage_2015():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2015)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2015)
 
-    print('2015: OK')
+    print('2015 US: OK')
 
-def calculate_language_popularity_percentage_2016():
+def calculate_language_popularity_percentage_US_2016():
     with open('../data/developer_survey_2016/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -261,14 +266,15 @@ def calculate_language_popularity_percentage_2016():
 
         for line in csv_reader:
             if line['self_identification'] != '':
-                counts['Yes'] += 1
-                languages = line['tech_do'].split(';')
-                for unstripped_language in languages:
-                    language = unstripped_language.strip()
-                    try:
-                        language_counter[language] += 1
-                    except: 
-                        language_counter.update({f'{language}': 1})
+                if line['country'] == 'United States':
+                    counts['Yes'] += 1                
+                    languages = line['tech_do'].split(';')
+                    for unstripped_language in languages:
+                        language = unstripped_language.strip()
+                        try:
+                            language_counter[language] += 1
+                        except: 
+                            language_counter.update({f'{language}': 1})
             else:
                 counts['No'] += 1
 
@@ -287,12 +293,12 @@ def calculate_language_popularity_percentage_2016():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2016)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2016)
 
-    print('2016: OK')
+    print('2016 US: OK')
 
 
-def calculate_language_popularity_percentage_2017():
+def calculate_language_popularity_percentage_US_2017():
     with open('../data/developer_survey_2017/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -307,14 +313,15 @@ def calculate_language_popularity_percentage_2017():
             if line['Professional'] == 'None of these':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                languages = line['HaveWorkedLanguage'].split(';')
-                for unstripped_language in languages:
-                    language = unstripped_language.strip()
-                    try:
-                        language_counter[language] += 1
-                    except: 
-                        language_counter.update({f'{language}': 1})
+                if line['Country'] == 'United States':
+                    counts['Yes'] += 1                
+                    languages = line['HaveWorkedLanguage'].split(';')
+                    for unstripped_language in languages:
+                        language = unstripped_language.strip()
+                        try:
+                            language_counter[language] += 1
+                        except: 
+                            language_counter.update({f'{language}': 1})
     
     # print(language_counter)
 
@@ -331,12 +338,12 @@ def calculate_language_popularity_percentage_2017():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2017)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2017)
 
-    print('2017: OK')
+    print('2017 US: OK')
 
 
-def calculate_language_popularity_percentage_2018():
+def calculate_language_popularity_percentage_US_2018():
     with open('../data/developer_survey_2018/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -351,14 +358,15 @@ def calculate_language_popularity_percentage_2018():
             if line['DevType'] == 'Marketing or sales professional' or line['DevType'] == 'None of the above' or line['DevType'] == '':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                languages = line['LanguageWorkedWith'].split(';')
-                for unstripped_language in languages:
-                    language = unstripped_language.strip()
-                    try:
-                        language_counter[language] += 1
-                    except: 
-                        language_counter.update({f'{language}': 1})
+                if line['Country'] == 'United States':
+                    counts['Yes'] += 1                
+                    languages = line['LanguageWorkedWith'].split(';')
+                    for unstripped_language in languages:
+                        language = unstripped_language.strip()
+                        try:
+                            language_counter[language] += 1
+                        except: 
+                            language_counter.update({f'{language}': 1})
 
     # print(language_counter)
 
@@ -375,12 +383,12 @@ def calculate_language_popularity_percentage_2018():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2018)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2018)
 
-    print('2018: OK')
+    print('2018 US: OK')
 
 
-def calculate_language_popularity_percentage_2019():
+def calculate_language_popularity_percentage_US_2019():
     with open('../data/developer_survey_2019/survey_results_public.csv') as f:
         csv_reader = csv.DictReader(f)
 
@@ -395,14 +403,15 @@ def calculate_language_popularity_percentage_2019():
             if line['DevType'] == 'NA' or line['DevType'] == '' or line['DevType'] == 'Marketing or sales professional':
                 counts['No'] += 1
             else:
-                counts['Yes'] += 1
-                languages = line['LanguageWorkedWith'].split(';')
-                for unstripped_language in languages:
-                    language = unstripped_language.strip()
-                    try:
-                        language_counter[language] += 1
-                    except: 
-                        language_counter.update({f'{language}': 1})
+                if line['Country'] == 'United States':
+                    counts['Yes'] += 1                
+                    languages = line['LanguageWorkedWith'].split(';')
+                    for unstripped_language in languages:
+                        language = unstripped_language.strip()
+                        try:
+                            language_counter[language] += 1
+                        except: 
+                            language_counter.update({f'{language}': 1})
 
     # print(language_counter)
 
@@ -420,18 +429,18 @@ def calculate_language_popularity_percentage_2019():
 
     output_dictionary = utils.map_data_to_spreadsheet_form(language_counter)
 
-    utils.write_popular_languages_dictionary_to_file(output_dictionary, 2019)
+    utils.write_popular_languages_dictionary_US_to_file(output_dictionary, 2019)
 
-    print('2019: OK')
+    print('2019 US: OK')
 
 
 if __name__ == "__main__":
-    calculate_language_popularity_percentage_2011()
-    calculate_language_popularity_percentage_2012()
-    calculate_language_popularity_percentage_2013()
-    calculate_language_popularity_percentage_2014()
-    calculate_language_popularity_percentage_2015()
-    calculate_language_popularity_percentage_2016()
-    calculate_language_popularity_percentage_2017()
-    calculate_language_popularity_percentage_2018()
-    calculate_language_popularity_percentage_2019()
+    calculate_language_popularity_percentage_US_2011()
+    calculate_language_popularity_percentage_US_2012()
+    calculate_language_popularity_percentage_US_2013()
+    calculate_language_popularity_percentage_US_2014()
+    calculate_language_popularity_percentage_US_2015()
+    calculate_language_popularity_percentage_US_2016()
+    calculate_language_popularity_percentage_US_2017()
+    calculate_language_popularity_percentage_US_2018()
+    calculate_language_popularity_percentage_US_2019()
