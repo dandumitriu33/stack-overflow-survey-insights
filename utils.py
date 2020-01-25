@@ -228,3 +228,39 @@ def write_popular_languages_dictionary_HU_to_file(input_dictionary, year):
                         'WebAssembly', 'WordPress', 'iOS']
             writer = csv.DictWriter(f, fieldnames=fieldnames)
             writer.writerow(input_dictionary)
+
+
+def write_popular_languages_dictionary_PL_to_file(input_dictionary, year):
+    """Writes the dicitionary to the .csv file to prepare for charts.
+    If the year is 2011, the process is 'w' in order to write the headers.
+    The rest of the years are 'a'.
+
+    Args: 
+        input_dictionary: dictionary from the yearly functions. They have 
+        Language(string): percentage(float, 2 decimals) format
+        year: integer, the year of the dictionary    
+    """
+    input_dictionary['year'] = year
+    if year == 2011:
+        with open('results/006_language_popularity_PL.csv', 'w', newline='') as f:
+            fieldnames=['year', 'ABAP', 'ActionScript', 'Assembly', 'Bash/Shell/PowerShell', 'C', 'C#', 'C++', 'Cassandra', 
+                        'Clojure', 'Cobol', 'CoffeeScript', 'ColdFusion', 'Common Lisp', 'Cordova', 'D', 'Dart', 
+                        'Delphi', 'Drupal', 'Elixir', 'Erlang', 'F#', 'Fortran', 'Go', 'Groovy', 'HTML/CSS', 'Hack', 
+                        'Hadoop', 'Haskell', 'Java', 'JavaScript', 'Julia', 'Kotlin', 'LAMP', 'Lua', 'MATLAB', 'MongoDB',
+                        'Node.js', 'OCaml', 'Objective-C', 'PHP', 'Perl', 'Python', 'R', 'Redis', 'Ruby', 'Rust', 'SQL', 
+                        'Scala', 'Smalltalk', 'Spark', 'Swift', 'TypeScript', 'VB.NET', 'VBA', 'VHDL', 'Visual Basic', 
+                        'WebAssembly', 'WordPress', 'iOS']
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writeheader()
+            writer.writerow(input_dictionary)
+    elif year != 2011:
+        with open('results/006_language_popularity_PL.csv', 'a', newline='') as f:
+            fieldnames=['year', 'ABAP', 'ActionScript', 'Assembly', 'Bash/Shell/PowerShell', 'C', 'C#', 'C++', 'Cassandra', 
+                        'Clojure', 'Cobol', 'CoffeeScript', 'ColdFusion', 'Common Lisp', 'Cordova', 'D', 'Dart', 
+                        'Delphi', 'Drupal', 'Elixir', 'Erlang', 'F#', 'Fortran', 'Go', 'Groovy', 'HTML/CSS', 'Hack', 
+                        'Hadoop', 'Haskell', 'Java', 'JavaScript', 'Julia', 'Kotlin', 'LAMP', 'Lua', 'MATLAB', 'MongoDB',
+                        'Node.js', 'OCaml', 'Objective-C', 'PHP', 'Perl', 'Python', 'R', 'Redis', 'Ruby', 'Rust', 'SQL', 
+                        'Scala', 'Smalltalk', 'Spark', 'Swift', 'TypeScript', 'VB.NET', 'VBA', 'VHDL', 'Visual Basic', 
+                        'WebAssembly', 'WordPress', 'iOS']
+            writer = csv.DictWriter(f, fieldnames=fieldnames)
+            writer.writerow(input_dictionary)
