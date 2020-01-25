@@ -34,6 +34,8 @@ def calculate_language_popularity_percentage_PL_2011():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     # remove rare instances
 
     for k in list(language_counter.keys()):
@@ -88,6 +90,8 @@ def calculate_language_popularity_percentage_PL_2012():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     for k in list(language_counter.keys()):
         if language_counter[k] < 5:
             del language_counter[k]
@@ -139,6 +143,8 @@ def calculate_language_popularity_percentage_PL_2013():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
             del language_counter[k]
@@ -189,6 +195,8 @@ def calculate_language_popularity_percentage_PL_2014():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
             del language_counter[k]
@@ -238,6 +246,8 @@ def calculate_language_popularity_percentage_PL_2015():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
             del language_counter[k]
@@ -281,6 +291,8 @@ def calculate_language_popularity_percentage_PL_2016():
     # print(language_counter)
 
     total_active_practitioners = counts['Yes']
+
+    print('Respondents: ', total_active_practitioners)
 
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
@@ -327,6 +339,8 @@ def calculate_language_popularity_percentage_PL_2017():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
             del language_counter[k]
@@ -372,6 +386,8 @@ def calculate_language_popularity_percentage_PL_2018():
 
     total_active_practitioners = counts['Yes']
 
+    print('Respondents: ', total_active_practitioners)
+
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:
             del language_counter[k]
@@ -416,6 +432,8 @@ def calculate_language_popularity_percentage_PL_2019():
     # print(language_counter)
 
     total_active_practitioners = counts['Yes']
+
+    print('Respondents: ', total_active_practitioners)
 
     for k in list(language_counter.keys()):
         if language_counter[k] < 10:

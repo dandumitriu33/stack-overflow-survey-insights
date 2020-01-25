@@ -1,0 +1,64 @@
+DATABASE MODIFICATIONS AND DETAILS
+
+1. SOURCE
+
+Downloaded the zip files from Stack Overflow - https://insights.stackoverflow.com/survey
+
+2. LOCATION ON THE LOCAL MACHINE
+
+The data was not uploaded on the project because (in 2019) it is over 670 MB in size.
+
+Create a data folder alongside(on the same level) the git folder.
+
+In the data folder, create a folder for each year named in this way: developer_survey_2011 
+
+In each developer_survey_2011 folder, rename the results .csv file to: survey_results_public.csv
+Yes, these files have the same name, the folder that holds them is different.
+
+3. DATABASE MODIFICATIONS
+
+* The 2011 .csv file had a 2nd row with only the Response word above the answers, removed
+* The 2011 .csv file: Renamed cells (AF to AQ) in 2011 data as they were separate cells with languages not 1 cell with data separated by “;”. Names were from lang1 to lang12, skipped None. As there was also an Other section, the final dictionary has only languages that showed up more than 4 times
+
+* The 2012 .csv file had a 2nd row with only the Response word above the answers, removed
+* The 2012 .csv file: Renamed cells (W to AK) in 2012 data as they were separate cells with languages not 1 cell with data separated by “;”. Names were from lang1 to lang14, skipped None. As there was also an Other section, the final dictionary has only languages that showed up more than 4 times
+
+* The 2013 .csv file had a 2nd row with only the Response word above the answers, removed
+* The 2013 .csv file: Renamed cells (BE to BR) in 2013 data as they were separate cells with languages not 1 cell with data separated by “;”. Names were from lang1 to lang14. As there was also an Other section, the final dictionary has only languages that showed up more than 9 times
+
+* The 2014 .csv file had a 2nd row with only the Response word above the answers, removed
+* The 2014 .csv file: Renamed cells (AQ to BB) in 2014 data as they were separate cells with languages not 1 cell with data separated by “;”. Names were from lang1 to lang12. As there was also an Other section, the final dictionary has only languages that showed up more than 9 times
+
+* The 2015 .csv file had a top header row above the column names with indicators on how many responses to select. I removed it to make the actual column names the header of the column.
+* The 2015 .csv file: Renamed cells (I to AY) in 2015 data as they were separate cells with languages not 1 cell with data separated by “;”. Names were from lang1 to lang43. As there was also a Write in section, the final dictionary has only languages that showed up more than 9 times
+
+4. SELECTION CRITERIA
+
+* 2011 - 2013 - for Europe, only had a dew big countries, used 'Other Europe' for PL, RO, HU
+
+* 2011 - used: 'Which of the following best describes your occupation?' > excluded: 'Other', "I don't work in tech", ''
+Note: There were many blank lines. Used a second column to eliminate: 'How would you best describe the industry you work in?'
+
+* 2012 - used: 'Which of the following best describes your occupation?' > excluded: 'Other', "I don't work in tech", ''
+Note: There were many blank lines. Used a second column to eliminate: 'How would you best describe the industry you currently work in?'
+
+* 2013 - used: 'Which of the following best describes your occupation?' > excluded: 'Other', "I don't work in tech", ''
+Note: There were many blank lines. Used a second column to eliminate: 'How would you best describe the industry you currently work in?'
+
+* 2014 - used: 'Which of the following best describes your occupation?' > excluded: 'Other', "I don't work in tech", ''
+Note: There were many blank lines. Used a second column to eliminate: 'How would you best describe the industry you currently work in?'
+
+* 2015 - About 5000 out of 26000 respondents did not list the Occupation. Used: 'Tabs or Spaces' > excluded: 'Huh?', ''
+Note: in 2015 they started mixing languages with technologies such as Android, Arudino and so on. Removed as they are not languages. 
+
+* 2016 - used 'self_identification' > excluded: ''
+
+* 2017 - used 'Professional' > excluded: 'None of these'
+
+* 2018 - used 'DevType' as it did not have a 'Professional' column > excluded: 'Marketing or sales professional', 'None of the above', ''
+
+* 2019 - used 'DevType' as it no longer used a 'Professional' column > excluded: 'NA', '', 'Marketing or sales professional'
+Note: there is an 'Other' section which were counted as developers as most people answered in the first section 'MainBranch' with developer options
+Note: MainBranch (Which of the following options best describes you today? Here, by "developer" we mean "someone who writes code.") with Developer related selections. There was a 'None of these' option but no respondents selected it.
+
+
