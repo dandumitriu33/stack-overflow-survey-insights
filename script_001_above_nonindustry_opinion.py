@@ -35,6 +35,7 @@ def calculate_above_nonindustry_percentage_2011():
     with open('results/001_above_nonindustry_opinion.csv', 'w', newline='') as f:
         fieldnames=['year', 'n=', 'yes', 'no']
         writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer.writeheader()
         writer.writerow({'year':2011, 'n=':total, 'yes':yes_pct, 'no':no_pct})
 
 
