@@ -34,7 +34,7 @@ Yes, these files have the same name, the folder that holds them is different.
 
 4. SELECTION CRITERIA
 
-* 2011 - 2013 - for Europe, only had a dew big countries, used 'Other Europe' for PL, RO, HU
+* 2011 - 2013 - for Europe, only had a few big countries, used 'Other Europe' for PL, RO, HU
 
 * 2011 - used: 'Which of the following best describes your occupation?' > excluded: 'Other', "I don't work in tech", ''
 Note: There were many blank lines. Used a second column to eliminate: 'How would you best describe the industry you work in?'
