@@ -2,6 +2,12 @@
 Educational project in data science, analyzing responses from the annual Stack Overflow survey.
 
 ## Quick Look
+
+![alt text](results/img/topLanguagesUS.jpg?raw=true)
+![alt text](results/img/topLanguagesRO.jpg?raw=true)
+![alt text](results/img/topLanguagesHU.jpg?raw=true)
+![alt text](results/img/topLanguagesPL.jpg?raw=true)
+
 Take the files from the 'results' directory and chart your favorite languages.
 
 ## Details on modifications and selection criteria
