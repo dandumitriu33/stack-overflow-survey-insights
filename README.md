@@ -1,11 +1,20 @@
 # stack-overflow-survey-insights
 Educational project in data science, analyzing responses from the annual Stack Overflow survey.
 
-## Quick Look
+In this exercise, we are looking at the most popular languages by country, percentage wise, from 2011 to 2019.
 
+For example, out of all respondents, how many said they used a language in that year.
+Note: JavaScript 2013 had JQuery as a separate option and in the script I included it, thus 120%.
+
+# Screenshots
+
+# United States
 ![alt text](results/img/topLanguagesUS.jpg?raw=true)
+# Romania
 ![alt text](results/img/topLanguagesRO.jpg?raw=true)
+# Hungary
 ![alt text](results/img/topLanguagesHU.jpg?raw=true)
+# Poland
 ![alt text](results/img/topLanguagesPL.jpg?raw=true)
 
 Take the files from the 'results' directory and chart your favorite languages.
